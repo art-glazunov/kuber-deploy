@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name : my-app
-          image: my_ml_app
+          image: my_ml_app:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
