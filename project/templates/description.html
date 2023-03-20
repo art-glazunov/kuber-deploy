@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+ <title>Описание модели</title>
+ 
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+ <div class="container">
+ 
+ <h1> Описание модели </h1>
+  <p></p>
+
+ {% if message != 'произошла ошибка в работе приложения, проверьте модель!' %}
+     <h3> Метод получения признаков </h3>
+     <p style="background-color:#eee"> {{ model[-2] }} </p>
+     <p></p>
+     <h3> Алгоритм классификации </h3>
+     <p style="background-color:#eee"> {{ model[-1] }} </p>
+     <p></p>
+  {% else %} 
+     <p style="color:red">{{ message }}</p>
+  {% endif %}
+  
+   <a href = "{{ url_for('index_page') }}" type="button" class="btn btn-primary">Вернуться</a>
+   <p></p>
+  
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+

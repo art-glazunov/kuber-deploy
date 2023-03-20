@@ -1,0 +1,43 @@
+<!doctype html>
+<head>
+ <title>Оценка тональности отзыва</title>
+  <style type="text/css">
+    body            { font-family: sans-serif; background: #eee; }
+    h1, h2          { color: #377BA8; }
+    h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+    h1              { border-bottom: 2px solid #eee; }
+    h2              { font-size: 1.2em; }
+    dl             {font-size: 120%; font-family: Verdana, Arial, Helvetica, sans-serif; color: #336;}
+    .page           { margin: 2em auto; width: 35em;height:20em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; } 
+  </style>
+</head>
+<body>
+ <div class=page>
+  <h1>Анализ тональности отзыва</h1>
+  <p></p>
+  <a href = "{{ url_for('index_page') }}"><button type=sumbit>Очистить форму</button></a>
+  <a href = "{{ url_for('model_page') }}"><button type=sumbit>Описание модели</button></a>
+  <form action="{{ url_for('index_page') }}" method=post>
+    <dl>
+        <dt>Введите пример отзыва на русском языке<br>
+        <dd><textarea placeholder='Поле для текста' name=text rows=5 cols=60>{{ text }}</textarea>
+        <dd><input type=submit value="Оценить">
+    </dl>
+  </form>
+  
+  <h2>Предсказание тональности отзыва:</h2>
+  {% if prediction_message == 'произошла ошибка в работе модели!' or prediction_message =='Введите корректный отзыв!'%}
+    <p style='color:red'>{{ prediction_message }}</p>
+  {% elif prediction_message == 'Введите отзыв!'%}  
+    <p style='color:grey'>{{ prediction_message }}</p>  
+  {% else %} 
+     {% if prediction_message.split(' ')[1]=='положительный'%}
+        <h3 style='color:blue'>{{ prediction_message }}</h3>
+     {% else %}
+        <h3 style='color:red'>{{ prediction_message }}</h3>
+     {% endif %}
+  {% endif %}    
+  
+ </div>
+</body>
