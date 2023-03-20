@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  labels:
+    env  : test
+    app  : main
+    tier : ml
+    owner: Artem_Glazunov
+spec:
+  containers:
+    - name : my-app
+      image: my_ml_app
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 5000
