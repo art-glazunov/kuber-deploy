@@ -8,12 +8,13 @@ export let options = {
         { duration: '5s', target: 300 }, 
         { duration: '20s', target: 600 }, 
         { duration: '5s', target: 300}, 
-        { duration: '5s', target: 50 }, 
+        { duration: '5s', target: 200 }, 
+        { duration: '10s', target: 0 }, 
       ],
 };
 
 export default function () {
-    group('API uptime check', () => {
+    group('API check', () => {
         const response = http.get('http://localhost:4000');
         check(response, {
             "status code should be 200": res => res.status == 200,
