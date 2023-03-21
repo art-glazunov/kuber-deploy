@@ -31,7 +31,7 @@ export default function () {
             "status code should be 200": res => res.status === 200,
         });
         check(response, {
-            'Service works': (res) => JSON.stringify(res).includes('Отзыв отрицательный'),
+            'Service works': (res) => JSON.stringify(res).includes('Отзыв отрицательный с вероятностью: 89.18 %'),
           });
         sleep(4);
     });
@@ -45,7 +45,7 @@ export default function () {
             "status code should be 200": res => res.status === 200,
         });
         check(response, {
-            'Service works': (res) => JSON.stringify(res).includes('Отзыв положительный'),
+            'Service works': (res) => JSON.stringify(res).includes('Отзыв положительный с вероятностью: 99.24 %'),
           });
         sleep(4);
     });
